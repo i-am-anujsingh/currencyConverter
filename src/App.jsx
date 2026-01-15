@@ -2,14 +2,14 @@ import { useState } from 'react'
 import './App.css'
 import InputBox from './myCompos/InputBox.jsx'
 import useCurrencyInfo from './hooks/useCurrencyInfo.js'
-import {getImageUrl} from '../utilities/utils.js'
+//import {getImageUrl} from '../utilities/utils.js'
 
 function App() {
   
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(null);
   const [from, setFrom] = useState("usd");
   const [to, setTo] = useState("inr");
-  const [convertedAmount, setConvertedAmount] = useState(0);
+  const [convertedAmount, setConvertedAmount] = useState(null);
 
   const currencyInfo = useCurrencyInfo(from);
 
@@ -30,12 +30,13 @@ function App() {
      <div
         className="w-full h-screen flex flex-wrap justify-center items-top bg-cover bg-no-repeat"
         style={{
-            backgroundImage: `url(${getImageUrl(10864024)})`,
+            backgroundImage: `url(bg.jpg)`,
+            backgroundPosition: "center"
         }}
     >
-    <h1 className="pt-5 text-5xl text-white font-extrabold underline"><center>Currency Converter</center>
+    <h1 className="pt-5 text-5xl text-white font-extrabold md:text-7xl"><center>Currency Converter</center>
     </h1>
-        <div className="w-full">
+        <div className="w-full px-3">
             <div className="w-full max-w-lg mx-auto border border-gray-60 rounded-lg p-4 backdrop-blur-sm ">
                 <form
                     onSubmit={(e) => {
